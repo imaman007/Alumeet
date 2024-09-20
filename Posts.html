@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association Platform - Alumni Posts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>
+                        <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#feed">Alumni Feed</a></li>
+                    <li><a href="#create-post">Create Post</a></li>
+                    <li><a href="#my-posts">My Posts</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="posts-hero" class="hero">
+            <div class="container">
+                <h2>Alumni Posts</h2>
+                <p>Engage with the alumni community and share your experiences.</p>
+            </div>
+        </section>
+
+        <section id="feed">
+            <div class="container">
+                <h2>Alumni Feed</h2>
+                <p>Explore the latest updates and posts from fellow alumni.</p>
+                <div class="post-list">
+                    <!-- Display the alumni feed here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="create-post">
+            <div class="container">
+                <h2>Create a Post</h2>
+                <p>Share your thoughts, achievements, or updates with the community.</p>
+                <form class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <textarea placeholder="Write your post..." required></textarea>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-image"></i>
+                        <input type="file" accept="image/*" placeholder="Upload an image">
+                    </div>
+                    <button type="submit" class="btn feature-box">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Post</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="my-posts">
+            <div class="container">
+                <h2>My Posts</h2>
+                <p>Review and manage your own alumni posts.</p>
+                <div class="post-list">
+                    <!-- Display the user's own posts here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <div class="container">
+                <h2>Feedback & Engagement</h2>
+                <p>Share your thoughts and ideas to improve the alumni posts experience.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>Feedback Form</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Forum</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Engagement Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>

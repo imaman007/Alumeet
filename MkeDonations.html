@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association Platform - Donation Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>
+                        <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#donation-form">Donation Form</a></li>
+                    <li><a href="#donation-impact">Your Impact</a></li>
+                    <li><a href="#donation-history">Donation History</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="donation-hero" class="hero">
+            <div class="container">
+                <h2>Donation Portal</h2>
+                <p>Support our alma mater and make a difference today!</p>
+            </div>
+        </section>
+
+        <section id="donation-form">
+            <div class="container">
+                <h2>Make Your Donation</h2>
+                <form class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" placeholder="Donation Amount ($)" min="1" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-university"></i>
+                        <select required>
+                            <option value="">Select Fund</option>
+                            <option value="general">General Fund</option>
+                            <option value="scholarship">Scholarship Fund</option>
+                            <option value="research">Research Fund</option>
+                            <option value="athletics">Athletics Fund</option>
+                        </select>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-calendar-alt"></i>
+                        <select required>
+                            <option value="">Donation Frequency</option>
+                            <option value="once">One-time donation</option>
+                            <option value="monthly">Monthly donation</option>
+                            <option value="annually">Annual donation</option>
+                        </select>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-credit-card"></i>
+                        <input type="text" placeholder="Card Number" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-calendar"></i>
+                        <input type="text" placeholder="MM/YY" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-lock"></i>
+                        <input type="text" placeholder="CVV" required>
+                    </div>
+                    <button type="submit" class="btn feature-box">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <span>Donate Now</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="donation-impact" class="bg-image features-bg">
+            <div class="container">
+                <h2>Your Impact</h2>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Support Scholarships</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-flask"></i>
+                        <span>Advance Research</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-building"></i>
+                        <span>Improve Facilities</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>Enhance Student Life</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donation-history">
+            <div class="container">
+                <h2>Donation History</h2>
+                <p>Review your past donations and their impact.</p>
+                <div class="donation-list">
+                    <!-- Display user's donation history here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <div class="container">
+                <h2>Feedback & Engagement</h2>
+                <p>Share your thoughts and ideas to improve the donation experience.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>Feedback Form</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Forum</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Engagement Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>

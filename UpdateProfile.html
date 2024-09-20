@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile - Alumni Association Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>
+                        <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#alumni-dashboard">Dashboard</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#other-features">Events</a></li>
+                    <li><a href="index.html#feedback">Feedback</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Update Your Profile</h2>
+            </div>
+        </section>
+
+        <div class="container">
+            <section>
+                <h2>Edit Your Information</h2>
+                <form action="#" method="post">
+                    <div>
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="graduation-year">Graduation Year:</label>
+                        <input type="number" id="graduation-year" name="graduation-year" required>
+                    </div>
+                    <div>
+                        <label for="current-job">Current Job:</label>
+                        <input type="text" id="current-job" name="current-job">
+                    </div>
+                    <div>
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio" name="bio" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Update Profile</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+</body>
+</html>

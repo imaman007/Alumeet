@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association Platform - Alumni Connections</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#connections">My Connections</a></li>
+                    <li><a href="#network">Alumni Network</a></li>
+                    <li><a href="#mentorship">Mentorship</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="connections-hero" class="hero">
+            <div class="container">
+                <h2>Alumni Connections</h2>
+                <p>Expand your professional network and engage with fellow alumni.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="connections">
+                <h2>My Connections</h2>
+                <p>View and manage your existing alumni connections.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Connection Requests</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>My Connections</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-address-book"></i>
+                        <span>Connection Directory</span>
+                    </div>
+                </div>
+                <div class="connection-list">
+                    <!-- Display user's connections here -->
+                </div>
+            </section>
+
+            <section id="network">
+                <h2>Alumni Network</h2>
+                <p>Explore and engage with the broader alumni community.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search alumni by name or location" />
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-filter"></i>
+                        <select>
+                            <option value="">Filter by</option>
+                            <option value="location">Location</option>
+                            <option value="industry">Industry</option>
+                            <option value="graduation-year">Graduation Year</option>
+                        </select>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>Connect</span>
+                    </div>
+                </div>
+                <div class="alumni-list">
+                    <!-- Display alumni profiles from the network here -->
+                </div>
+            </section>
+
+            <section id="mentorship">
+                <h2>Mentorship Program</h2>
+                <p>Connect with experienced alumni mentors for guidance and support.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Find a Mentor</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>Become a Mentor</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Mentorship Forum</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="feedback">
+                <h2>Feedback & Engagement</h2>
+                <p>Share your thoughts and ideas to improve the connections experience.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>Feedback Form</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Forum</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Engagement Analytics</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="contact" class="bg-image contact-bg">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>For any inquiries, email us at: <a href="mailto:alumni@platform.com">alumni@platform.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association Platform - Event Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>
+                        <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#create-event">Create Event</a></li>
+                    <li><a href="#manage-events">Manage Events</a></li>
+                    <li><a href="#event-analytics">Event Analytics</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="event-management-hero" class="hero">
+            <div class="container">
+                <h2>Event Management</h2>
+                <p>Organize and manage your alumni events and reunions.</p>
+            </div>
+        </section>
+
+        <section id="create-event">
+            <div class="container">
+                <h2>Create Event</h2>
+                <p>Set up a new alumni event or reunion with our event creation tools.</p>
+                <form class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="text" placeholder="Event Name" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="datetime-local" placeholder="Event Date and Time" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Event Location" required>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <textarea placeholder="Event Description" required></textarea>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-image"></i>
+                        <input type="file" accept="image/*" placeholder="Event Image">
+                    </div>
+                    <button type="submit" class="btn feature-box">
+                        <i class="fas fa-plus"></i>
+                        <span>Create Event</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="manage-events">
+            <div class="container">
+                <h2>Manage Events</h2>
+                <p>View, edit, and update your created alumni events and reunions.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search events" />
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-filter"></i>
+                        <select>
+                            <option value="">Filter by</option>
+                            <option value="event-type">Event Type</option>
+                            <option value="location">Location</option>
+                            <option value="date">Date</option>
+                        </select>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-edit"></i>
+                        <span>Edit Event</span>
+                    </div>
+                </div>
+                <div class="event-list">
+                    <!-- Display the list of created events here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="event-analytics">
+            <div class="container">
+                <h2>Event Analytics</h2>
+                <p>Gain insights into the performance and engagement of your events.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Attendance Analytics</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>Participant Engagement</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Revenue Tracking</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Feedback Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <div class="container">
+                <h2>Feedback & Engagement</h2>
+                <p>Share your thoughts and ideas to improve the event management experience.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>Feedback Form</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Forum</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Engagement Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>

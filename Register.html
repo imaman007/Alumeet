@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Alumni Association Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .password-container {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .file-input-container input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-input-button {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .otp-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #send-otp-btn, #verify-otp-btn {
+            background-color: #3498db; /* Changed to match the theme */
+            color: white;
+            border: none;
+            padding: 8px 12px; /* Decreased size */
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        #send-otp-btn:hover, #verify-otp-btn:hover {
+            background-color: #2980b9; /* Darker shade for hover state */
+        }
+
+        #send-otp-btn:disabled, #verify-otp-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #otp-section {
+            display: none;
+            margin-top: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        #otp-input {
+            width: 200px;
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #otp-timer {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+
+        #register-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #register-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #register-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #resend-otp-btn {
+            background-color: #f39c12; /* A distinct color for the resend button */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            display: none; /* Initially hidden */
+            margin-left: 10px;
+        }
+
+        #resend-otp-btn:hover {
+            background-color: #e67e22;
+        }
+
+        #resend-otp-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>
+                        <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#alumni-dashboard">Dashboard</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#other-features">Events</a></li>
+                    <li><a href="index.html#feedback">Feedback</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Register for Alumni Association</h2>
+            </div>
+        </section>
+
+        <div class="container">
+            <section>
+                <h2>Create Your Account</h2>
+                <form action="#" method="post" enctype="multipart/form-data" id="registration-form">
+                    <div>
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div>
+                        <label for="email">College Email ID:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span id="email-error" class="error-message"></span>
+                        <div class="otp-container">
+                            <button type="button" id="send-otp-btn" style="display: none;">Send OTP</button>
+                            <button type="button" id="resend-otp-btn" style="display: none;">Resend OTP</button>
+                            <span id="otp-timer"></span>
+                        </div>
+                    </div>
+                    <div id="otp-section">
+                        <label for="otp-input">Enter OTP:</label>
+                        <div class="otp-container">
+                            <input type="text" id="otp-input" placeholder="Enter 6-digit OTP" maxlength="6">
+                            <button type="button" id="verify-otp-btn">Verify OTP</button>
+                        </div>
+                        <span id="otp-error" class="error-message"></span>
+                    </div>
+                    <div class="password-container">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <i class="fas fa-eye password-toggle" onclick="togglePassword('password')"></i>
+                    </div>
+                    <div class="password-container">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <i class="fas fa-eye password-toggle" onclick="togglePassword('confirm-password')"></i>
+                    </div>
+                    <div>
+                        <label for="college">College:</label>
+                        <select id="college" name="college" required style="width: 104%; padding: 10px; margin-bottom: 18px; border: 1px solid #ccc; border-radius: 4px; background-color: #f8f8f8; font-size: 16px; color: #333; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\'black\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/><path d=\'M0 0h24v24H0z\' fill=\'none\'/></svg>'); background-repeat: no-repeat; background-position: right 10px top 50%; background-size: 20px;">
+                            <option value="">Select your college</option>
+                            <optgroup label="IITs">
+                                <option value="iit-bhilai">IIT Bhilai</option>
+                                <option value="iit-bhubaneswar">IIT Bhubaneswar</option>
+                                <option value="iit-bombay">IIT Bombay</option>
+                                <option value="iit-delhi">IIT Delhi</option>
+                                <option value="iit-dhanbad">IIT Dhanbad (ISM)</option>
+                                <option value="iit-dharwad">IIT Dharwad</option>
+                                <option value="iit-gandhinagar">IIT Gandhinagar</option>
+                                <option value="iit-goa">IIT Goa</option>
+                                <option value="iit-guwahati">IIT Guwahati</option>
+                                <option value="iit-hyderabad">IIT Hyderabad</option>
+                                <option value="iit-indore">IIT Indore</option>
+                                <option value="iit-jammu">IIT Jammu</option>
+                                <option value="iit-jodhpur">IIT Jodhpur</option>
+                                <option value="iit-kanpur">IIT Kanpur</option>
+                                <option value="iit-kharagpur">IIT Kharagpur</option>
+                                <option value="iit-madras">IIT Madras</option>
+                                <option value="iit-mandi">IIT Mandi</option>
+                                <option value="iit-palakkad">IIT Palakkad</option>
+                                <option value="iit-patna">IIT Patna</option>
+                                <option value="iit-roorkee">IIT Roorkee</option>
+                                <option value="iit-ropar">IIT Ropar</option>
+                                <option value="iit-tirupati">IIT Tirupati</option>
+                                <option value="iit-varanasi">IIT Varanasi (BHU)</option>
+                            </optgroup>
+                            <optgroup label="NITs">
+                                <option value="nit-agartala">NIT Agartala</option>
+                                <option value="nit-allahabad">NIT Allahabad</option>
+                                <option value="nit-andhra-pradesh">NIT Andhra Pradesh</option>
+                                <option value="nit-arunachal-pradesh">NIT Arunachal Pradesh</option>
+                                <option value="nit-calicut">NIT Calicut</option>
+                                <option value="nit-delhi">NIT Delhi</option>
+                                <option value="nit-durgapur">NIT Durgapur</option>
+                                <option value="nit-goa">NIT Goa</option>
+                                <option value="nit-hamirpur">NIT Hamirpur</option>
+                                <option value="nit-jaipur">NIT Jaipur</option>
+                                <option value="nit-jalandhar">NIT Jalandhar</option>
+                                <option value="nit-jamshedpur">NIT Jamshedpur</option>
+                                <option value="nit-karnataka">NIT Karnataka (Surathkal)</option>
+                                <option value="nit-kurukshetra">NIT Kurukshetra</option>
+                                <option value="nit-manipur">NIT Manipur</option>
+                                <option value="nit-meghalaya">NIT Meghalaya</option>
+                                <option value="nit-mizoram">NIT Mizoram</option>
+                                <option value="nit-nagaland">NIT Nagaland</option>
+                                <option value="nit-nagpur">NIT Nagpur</option>
+                                <option value="nit-patna">NIT Patna</option>
+                                <option value="nit-puducherry">NIT Puducherry</option>
+                                <option value="nit-raipur">NIT Raipur</option>
+                                <option value="nit-rourkela">NIT Rourkela</option>
+                                <option value="nit-sikkim">NIT Sikkim</option>
+                                <option value="nit-silchar">NIT Silchar</option>
+                                <option value="nit-srinagar">NIT Srinagar</option>
+                                <option value="nit-surat">NIT Surat</option>
+                                <option value="nit-tiruchirappalli">NIT Tiruchirappalli</option>
+                                <option value="nit-uttarakhand">NIT Uttarakhand</option>
+                                <option value="nit-warangal">NIT Warangal</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="graduation-year">Graduation Year:</label>
+                        <input type="number" id="graduation-year" name="graduation-year" required>
+                    </div>
+                    <div>
+                        <label for="profile-picture">Profile Picture:</label>
+                        <div class="file-input-container">
+                            <span class="file-input-button">Choose File</span>
+                            <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                        </div>
+                        <span id="file-name"></span>
+                    </div>
+                    <button type="submit" class="btn" id="register-btn" disabled>Register</button>
+                                </form>
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePassword(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            const icon = passwordField.nextElementSibling;
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        document.getElementById('profile-picture').addEventListener('change', function(e) {
+            var fileName = e.target.files[0].name;
+            document.getElementById('file-name').textContent = fileName;
+        });
+
+        // Email validation
+        const validDomains = [
+            'iitb.ac.in', 'iitd.ac.in', 'iitk.ac.in', 'iitkgp.ac.in', 'iitm.ac.in', 'iitr.ac.in', 'iitg.ac.in',
+            'iith.ac.in', 'iitbbs.ac.in', 'iitgn.ac.in', 'iitj.ac.in', 'iitjmu.ac.in', 'iitmandi.ac.in',
+            'iitp.ac.in', 'iitpkd.ac.in', 'iitrpr.ac.in', 'iittp.ac.in', 'iiti.ac.in', 'iitbhilai.ac.in',
+            'iitgoa.ac.in', 'iitdh.ac.in', 'nitc.ac.in', 'nitdgp.ac.in', 'nitk.ac.in', 'nitrkl.ac.in',
+            'mnit.ac.in', 'nitw.ac.in', 'vnit.ac.in', 'svnit.ac.in', 'nitkkr.ac.in', 'nitt.edu', 'nitj.ac.in',
+            'nitjsr.ac.in', 'nitsri.ac.in', 'nita.ac.in', 'nitmz.ac.in', 'nitp.ac.in', 'nitrr.ac.in',
+            'nits.ac.in', 'nitsikkim.ac.in', 'nith.ac.in', 'nituk.ac.in', 'nitap.ac.in', 'nitpy.ac.in',
+            'nitgoa.ac.in', 'nitm.ac.in', 'nitdelhi.ac.in', 'nitmanipur.ac.in', 'nitnagaland.ac.in',
+            'iiitm.ac.in', 'iiita.ac.in', 'iiitg.ac.in', 'iiitd.ac.in', 'iiitdm.ac.in'    , 'gmail.com'
+        ];
+
+        function validateEmail(email) {
+            const domain = email.split('@')[1];
+            return validDomains.includes(domain);
+        }
+
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const sendOtpBtn = document.getElementById('send-otp-btn');
+        const resendOtpBtn = document.getElementById('resend-otp-btn');
+        const otpSection = document.getElementById('otp-section');
+        const otpInput = document.getElementById('otp-input');
+        const verifyOtpBtn = document.getElementById('verify-otp-btn');
+        const otpError = document.getElementById('otp-error');
+        const registerBtn = document.getElementById('register-btn');
+        const otpTimer = document.getElementById('otp-timer');
+
+        let generatedOTP = '';
+        let timerInterval;
+
+        emailInput.addEventListener('input', function() {
+            if (validateEmail(this.value)) {
+                emailError.textContent = '';
+                sendOtpBtn.style.display = 'inline-block';
+            } else {
+                emailError.textContent = 'Please use a valid NIT or IIT email address.';
+                sendOtpBtn.style.display = 'none';
+            }
+        });
+
+        function sendOTP() {
+            generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+            console.log('Generated OTP:', generatedOTP); // For demonstration purposes
+            
+            alert('OTP sent to your email. For this demo, the OTP is: ' + generatedOTP);
+            
+            otpSection.style.display = 'block';
+            sendOtpBtn.style.display = 'none';
+            resendOtpBtn.style.display = 'none';
+            startOtpTimer(30); // 3 minutes timer
+        }
+
+        sendOtpBtn.addEventListener('click', sendOTP);
+        resendOtpBtn.addEventListener('click', sendOTP);
+
+        function startOtpTimer(duration) {
+            let timer = duration;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(function () {
+                const minutes = parseInt(timer / 60, 10);
+                const seconds = parseInt(timer % 60, 10);
+
+                otpTimer.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    otpTimer.textContent = "OTP Expired";
+                    resendOtpBtn.style.display = 'inline-block';
+                    verifyOtpBtn.disabled = true;
+                }
+            }, 1000);
+        }
+
+        verifyOtpBtn.addEventListener('click', function() {
+            if (otpInput.value === generatedOTP) {
+                otpError.textContent = '';
+                otpError.classList.add('success-message');
+                otpError.textContent = 'OTP verified successfully!';
+                registerBtn.disabled = false;
+                this.disabled = true;
+                otpInput.disabled = true;
+                clearInterval(timerInterval);
+                otpTimer.textContent = '';
+                resendOtpBtn.style.display = 'none';
+            } else {
+                otpError.classList.remove('success-message');
+                otpError.textContent = 'Invalid OTP. Please try again.';
+            }
+        });
+
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!registerBtn.disabled) {
+                alert('Registration successful!');
+                // In a real scenario, you would submit the form data to your server here
+            }
+        });
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!registerBtn.disabled) {
+        // Store user information in localStorage
+        localStorage.setItem('fullName', document.getElementById('full-name').value);
+        localStorage.setItem('email', document.getElementById('email').value);
+        localStorage.setItem('college', document.getElementById('college').value);
+        localStorage.setItem('graduationYear', document.getElementById('graduation-year').value);
+
+        // Handle profile picture
+        const profilePicInput = document.getElementById('profile-picture');
+        if (profilePicInput.files && profilePicInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                localStorage.setItem('profilePicture', e.target.result);
+            };
+            reader.readAsDataURL(profilePicInput.files[0]);
+        }
+
+        alert('Registration successful!');
+        // Redirect to the user profile page
+        window.location.href = 'user-profile.html';
+    }
+});
+        
+    </script>
+</body>
+</html>

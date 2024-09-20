@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association Platform - Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="alumeet-logo.png" alt="Alumeet Logo" class="logo"></a>            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#chat-rooms">Chat Rooms</a></li>
+                    <li><a href="#private-messages">Private Messages</a></li>
+                    <li><a href="#group-chats">Group Chats</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="chat-hero" class="hero">
+            <div class="container">
+                <h2>Alumni Chat</h2>
+                <p>Connect with fellow alumni in real-time conversations.</p>
+            </div>
+        </section>
+
+        <section id="chat-rooms">
+            <div class="container">
+                <h2>Chat Rooms</h2>
+                <p>Engage in discussions and share insights with the alumni community.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search chat rooms" />
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-filter"></i>
+                        <select>
+                            <option value="">Filter by</option>
+                            <option value="topic">Topic</option>
+                            <option value="activity">Activity</option>
+                            <option value="location">Location</option>
+                        </select>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Join Chat</span>
+                    </div>
+                </div>
+                <div class="chat-room-list">
+                    <!-- Display the list of available chat rooms here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="private-messages">
+            <div class="container">
+                <h2>Private Messages</h2>
+                <p>Communicate one-on-one with fellow alumni in a secure environment.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search alumni" />
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-envelope"></i>
+                        <span>New Message</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-inbox"></i>
+                        <span>Inbox</span>
+                    </div>
+                </div>
+                <div class="chat-history">
+                    <!-- Display the user's private chat history here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="group-chats">
+            <div class="container">
+                <h2>Group Chats</h2>
+                <p>Collaborate and discuss topics with a group of alumni.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search group chats" />
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-users"></i>
+                        <span>Create Group</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Join Group</span>
+                    </div>
+                </div>
+                <div class="group-chat-list">
+                    <!-- Display the list of available group chats here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <div class="container">
+                <h2>Feedback & Engagement</h2>
+                <p>Share your thoughts and ideas to improve the chat experience.</p>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>Feedback Form</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Forum</span>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Engagement Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ALUMEET</p>
+        </div>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>
